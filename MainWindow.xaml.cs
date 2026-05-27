@@ -19,10 +19,9 @@ namespace chatBotUI
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          
+
             string userMessage = UserInputBox.Text;
 
 
@@ -31,9 +30,8 @@ namespace chatBotUI
                 MessageBox.Show("Please type something partner!");
                 return;
             }
-
-           
-            string response = bot.Respond(userMessage);
+            
+        string response = bot.Respond(userMessage);
 
            Label userLabel = new Label();
             userLabel.Content = "You: " + userMessage;
@@ -54,6 +52,10 @@ namespace chatBotUI
 
         
             UserInputBox.Clear();
+        }
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
