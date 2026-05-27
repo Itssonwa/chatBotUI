@@ -12,10 +12,10 @@ public class Chatbot
     }
     public void Start()
     {
-        ShowAsciiArt();
+       
         audio.PlayGreeting();
 
-        Console.ForegroundColor = ConsoleColor.Yellow;
+        
         Console.WriteLine("Buck: Howdy,welcome to the Cybersecurity Chatbot![tips hat] ");
         Console.WriteLine("Buck:  Ya got any security questions that need answerin ?");
         Console.ResetColor();
@@ -95,7 +95,7 @@ public class Chatbot
     }
     private void ShowEmpathy(string sentiment)
     {
-        Console.ForegroundColor = ConsoleColor.Magenta;
+      
 
         switch (sentiment)
         {
@@ -112,25 +112,9 @@ public class Chatbot
                 break;
         }
 
-        Console.ResetColor();
+      
     }
-    private void ShowAsciiArt()
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(@" 
-====================================================================
-______       _____  _   __ ______ _  __  ______  _____  _____ ______
-| ___ \ | | /  __ \| | / / |_   _| | | ||  ___| | ___ \|  _  |_   _|
-| |_/ / | | | /  \/| |/ /    | | | |_| || |__   | |_/ /| | | | | |  
-| ___ \ | | | |    |    \    | | |  _  ||  __|  | ___ \| | | | | |  
-| |_/ / |_| | \__/\| |\  \   | | | | | || |___  | |_/ /\ \_/ / | |  
-\____/ \___/ \____/\_| \_/   \_/ \_| |_/\____/  \____/  \___/  \_/  
-
- ===================================================================                                                                   
-                                                                    
-    ");
-        Console.ResetColor();
-    }
+   
     private void ShowError(string message)
     {
      Console.ForegroundColor = ConsoleColor.Red;

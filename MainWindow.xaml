@@ -15,16 +15,13 @@
         <Grid.Background>
             <ImageBrush ImageSource="/western background.jpg"/>
         </Grid.Background>
-        <Button Background="#FFA9ED5B" Content="Send" HorizontalAlignment="Left" Height="29" Margin="679,217,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
-        <Button Background="#FFF17C2A" Content="Fin" HorizontalAlignment="Left" Height="29" Margin="679,370,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
-        <Label Content="Buck The Cyber Security Bot" HorizontalAlignment="Left" Margin="408,10,0,0" VerticalAlignment="Top" Width="382" Height="36" RenderTransformOrigin="0.509,0.532" FontSize="22" FontFamily="Copperplate Gothic Bold"/>
-        <StackPanel Background="#FFEFCF75" Margin="10,257,316,35" Opacity="0.8">
-            <Label Content="Label" HorizontalAlignment="Right"/>
-            <Label Content="Label"/>
-            <Label Content="Label" HorizontalAlignment="Right"/>
-            <Label Content="Label"/>
+        <Button x:Name="Send" Background="#FFA9ED5B" Content="Send" HorizontalAlignment="Left" Height="29" Margin="679,217,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
+        <Button x:Name="Exit" Background="#FFF17C2A" Content="Fin" HorizontalAlignment="Left" Height="29" Margin="679,370,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
+        <Label Content="Buck The Cyber Security Bot" HorizontalAlignment="Left" Margin="408,10,0,0" VerticalAlignment="Top" Width="382" Height="36" RenderTransformOrigin="0.509,0.532" FontSize="22" FontFamily="Copperplate Gothic Bold" Foreground="#FFC10D0D"/>
+        <StackPanel x:Name="stackPanel1" Background="#FFEFCF75" Margin="10,257,316,35" Opacity="0.8">
+           
         </StackPanel>
-        <TextBox HorizontalAlignment="Left" Margin="161,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="16" Height="27" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="UserInputBox" HorizontalAlignment="Left" Margin="161,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="16" Height="27" TextChanged="TextBox_TextChanged"/>
         <Label Background="#FF71E4A2" Content="Ask Away Partner" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top" Width="151" Height="27" FontFamily="Castellar"/>
 
     </Grid>
