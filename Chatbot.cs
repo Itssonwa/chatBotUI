@@ -2,123 +2,94 @@
 
 public class Chatbot
 {
-    private User user;
     private AudioPlayer audio;
 
     public Chatbot()
     {
-        user = new User();
         audio = new AudioPlayer();
-    }
-    public void Start()
-    {
-       
         audio.PlayGreeting();
-
-        
-        Console.WriteLine("Buck: Howdy,welcome to the Cybersecurity Chatbot![tips hat] ");
-        Console.WriteLine("Buck:  Ya got any security questions that need answerin ?");
-        Console.ResetColor();
-
-        user.GetName();
-
-        while (true)
-        {
-            Console.Write("You: ");
-            string input = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                ShowError("Ya gotta type something,friend.");
-                continue;
-            }
-
-            input = input.ToLower();
-            if (input == "exit")
-            {
-                Console.WriteLine("Buck: Stay safe online Partner. Adios!");
-                break;
-            }
-            Respond(input);
-        }
     }
-    private void Respond(string input)
+    public string Respond(string input)
     {
+        input = input.ToLower();
+
         string sentiment = DetectSentiment(input);
 
-        if (sentiment != "neutral")
-        {
-            ShowEmpathy(sentiment);
-        }
-
-        Console.ForegroundColor = ConsoleColor.Blue;
+        string empathyMessage = ShowEmpathy(sentiment);
 
         if (input.Contains("phishing"))
         {
-            Console.WriteLine("Buck: Phishing's like a snake oil salesman, tryin' to swindle your secrets outta ya.");
+         return empathyMessage +
+         "\nBuck: Phishing's like a snake oil salesman tryin' to steal your secrets.";
         }
         else if (input.Contains("malware"))
         {
-            Console.WriteLine("Buck: Malware's like a rustler sneakin' into your digital ranch, causin' trouble.");
+         return empathyMessage +
+         "\nBuck: Malware's like a rustler causin' trouble in your digital ranch.";
         }
         else if (input.Contains("stay safe"))
         {
-            Console.WriteLine("Buck: Lock down them passwords, avoid shady links, and keep your systems updated.");
+         return empathyMessage +
+         "\nBuck: Use strong passwords and avoid shady links, partner.";
         }
         else if (input.Contains("vpn"))
         {
-            Console.WriteLine("Buck: A VPN's like a secret tunnel through the desert—keeps your data safe and hidden.");
+         return empathyMessage +
+         "\nBuck: A VPN keeps your online trail hidden from cyber varmints.";
         }
         else if (input.Contains("firewall"))
         {
-            Console.WriteLine("Buck: A firewall’s the sheriff of your network, keepin’ bad folks out.");
+         return empathyMessage +
+         "\nBuck: A firewall guards your network like a sheriff guards a town.";
         }
         else
         {
-            Console.WriteLine("Buck: I ain't quite sure about that, partner. Try askin' about cybersecurity.");
+         return "Buck: I ain't quite sure about that partner.";
         }
-
-        Console.ResetColor();
     }
+
     private string DetectSentiment(string input)
     {
-        if (input.Contains("worried") || input.Contains("scared") || input.Contains("afraid"))
+        if (input.Contains("worried") ||
+            input.Contains("scared") ||
+            input.Contains("afraid"))
+        {
             return "worried";
+        }
 
-        if (input.Contains("curious") || input.Contains("interested"))
+        if (input.Contains("curious") ||
+            input.Contains("wondering") ||
+            input.Contains("interested"))
+        {
             return "curious";
+        }
 
-        if (input.Contains("frustrated") || input.Contains("confused") || input.Contains("annoyed"))
+        if (input.Contains("frustrated") ||
+            input.Contains("confused") ||
+            input.Contains("flustered") ||
+            input.Contains("annoyed"))
+        {
             return "frustrated";
+        }
 
         return "neutral";
     }
-    private void ShowEmpathy(string sentiment)
-    {
-      
 
+    private string ShowEmpathy(string sentiment)
+    {
         switch (sentiment)
         {
-            case "worried":
-                Console.WriteLine("Buck: I hear ya, partner. It's normal to feel worried about these things. Let's make sure you're safe.");
-                break;
+        case "worried":
+          return "Buck: I hear ya partner. Cyber threats can be scary.";
 
-            case "curious":
-                Console.WriteLine("Buck: I like that curiosity, partner! Let's explore this together.");
-                break;
+        case "curious":
+          return "Buck: I like that curiosity partner!";
 
-            case "frustrated":
-                Console.WriteLine("Buck: Easy there, partner. This stuff can get mighty confusing, but I got your back.");
-                break;
+        case "frustrated":
+          return "Buck: Easy there partner, I got your back.";
+
+        default:
+          return "";
         }
-
-      
-    }
-   
-    private void ShowError(string message)
-    {
-     Console.ForegroundColor = ConsoleColor.Red;
-     Console.WriteLine("Buck: " + message);
-     Console.ResetColor();
     }
 }
