@@ -27,7 +27,7 @@ namespace chatBotUI
 
             if (string.IsNullOrWhiteSpace(userMessage))
             {
-                MessageBox.Show("Please type something partner!");
+                MessageBox.Show("Ya gotta type something first partner!");
                 return;
             }
             
