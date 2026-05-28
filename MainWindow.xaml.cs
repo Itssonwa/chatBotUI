@@ -42,15 +42,15 @@ namespace chatBotUI
           
             Label botLabel = new Label();
             botLabel.Content = response;
-            botLabel.Foreground = Brushes.DarkBlue;
+            botLabel.Foreground = Brushes.Blue;
             botLabel.FontSize = 16;
             botLabel.HorizontalAlignment = HorizontalAlignment.Left;
 
            
             stackPanel1.Children.Add(userLabel);
             stackPanel1.Children.Add(botLabel);
+            chatScroller.ScrollToEnd();
 
-        
             UserInputBox.Clear();
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
