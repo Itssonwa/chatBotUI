@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Buck.png" />
     <None Remove="western background.jpg" />
   </ItemGroup>
 
@@ -29,6 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="10.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Buck.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="western background.jpg" />
   </ItemGroup>
 

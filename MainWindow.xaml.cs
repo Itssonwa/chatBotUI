@@ -36,14 +36,14 @@ namespace chatBotUI
            Label userLabel = new Label();
             userLabel.Content = "You: " + userMessage;
             userLabel.Foreground = Brushes.Black;
-            userLabel.FontSize = 16;
+            userLabel.FontSize = 12;
             userLabel.HorizontalAlignment = HorizontalAlignment.Right;
 
           
             Label botLabel = new Label();
             botLabel.Content = response;
             botLabel.Foreground = Brushes.Blue;
-            botLabel.FontSize = 16;
+            botLabel.FontSize = 12;
             botLabel.HorizontalAlignment = HorizontalAlignment.Left;
 
            

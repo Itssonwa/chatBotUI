@@ -38,57 +38,98 @@ public class Chatbot
 
             return response;
         }
+        else if (input.Contains("password"))
+        {
+            currentTopic = "password";
+         return empathyMessage +
+            "\nBuck: Make sure ya use strong, unique passwords for every account partner.\n Avoid birthdays or easy words.";
+        }
+
+        else if (input.Contains("scam"))
+        {
+            currentTopic = "scam";
+         return empathyMessage +
+            "\nBuck: Online scams often try to trick folks into giving money or personal info.";
+        }
 
         else if (input.Contains("malware"))
         {
-         currentTopic = "malware";
-
+            currentTopic = "malware";
          return empathyMessage +
             "\nBuck: Malware's like a rustler causin' trouble in your digital ranch.";
         }
+
+        else if (input.Contains("privacy"))
+        {
+            currentTopic = "privacy";
+         return empathyMessage +
+            "\nBuck: Protect your privacy by avoidin' oversharin' personal information online and using secure websites.";
+        }
+
         else if (input.Contains("vpn"))
         {
-         currentTopic = "vpn";
+           currentTopic = "vpn";
          return empathyMessage +
             "\nBuck: A VPN keeps your online trail hidden from cyber varmints.";
         }
+
         else if (input.Contains("firewall"))
         {
-         currentTopic = "firewall";
-
+           currentTopic = "firewall";
          return empathyMessage +
             "\nBuck: A firewall guards your network like a sheriff guards a town.";
         }
+
         else if (input.Contains("stay safe"))
         {
-         currentTopic = "safety";
-
+           currentTopic = "safety";
          return empathyMessage +
             "\nBuck: Use strong passwords and avoid shady links, partner.";
         }
+
         else if (input.Contains("tell me more"))
         {
             if (currentTopic == "phishing")
             {
              return "Buck: Phishing emails often pretend to be banks or trusted companies to fool ya.";
             }
+
+            else if (currentTopic == "password")
+            {
+                return "Buck: A strong password's like a sturdy ranch fence,partner.\n Mix in numbers, symbols, uppercase, and lowercase letters to keep them cyber bandits out.";
+            }
+
+            else if (currentTopic == "scam")
+            {
+                return "Buck: Them scammers are sneakier than coyotes in the night, partner.\n They often disguise themselves as banks, stores, or even government folk to trick unsuspectin' cowpokes.";
+            }
+
+            else if (currentTopic == "privacy")
+            {
+             return "Buck: Privacy settings on social media can help protect your personal information.";
+            }
+
             else if (currentTopic == "malware")
             {
              return "Buck: Malware can slow down your device or even steal important information.";
             }
+
             else if (currentTopic == "vpn")
             {
               return "Buck: VPNs are mighty useful when using public Wi-Fi in cafes or airports.";
             }
+
             else if (currentTopic == "firewall")
             {
               return "Buck: Firewalls monitor incoming and outgoing traffic to block dangerous connections.";
             }
+
             else
             {
               return "Buck: Tell me which topic ya want to hear more about partner.";
             }
         }
+
 
         else if (input.Contains("another tip"))
         {
