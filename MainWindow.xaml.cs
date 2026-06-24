@@ -33,7 +33,18 @@ namespace chatBotUI
             
         string response = bot.Respond(userMessage);
 
-           Label userLabel = new Label();
+            using (var db = new AppDbContext())
+            {
+                db.ChatHistory.Add(new ChatHistory
+                {
+                    UserMessage = userMessage,
+                    BotReply = response
+                });
+
+                db.SaveChanges();
+            }
+
+            Label userLabel = new Label();
             userLabel.Content = "You: " + userMessage;
             userLabel.Foreground = Brushes.Black;
             userLabel.FontSize = 12;
