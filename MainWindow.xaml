@@ -96,6 +96,18 @@
                         VerticalAlignment="Bottom"
                         Click="ExitButton_Click"/>
 
+                <Button x:Name="StartQuiz"
+                        Content="Start Quiz"
+                        FontSize="20"
+                        FontFamily="Bodoni MT Condensed"
+                        Background="#FFEC564F"
+                        Width="80"
+                        Height="28"
+                        Margin="10,0,0,10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Click="StartQuiz_Click"/>
+
             </Grid>
 
         </Border>
