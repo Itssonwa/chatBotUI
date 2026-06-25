@@ -9,7 +9,9 @@ namespace chatBotUI
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<ChatHistory> ChatHistory { get; set; }
+        public DbSet<ChatHistory> ChatHistory {get; set;}
+
+        public DbSet<Task> Tasks {get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

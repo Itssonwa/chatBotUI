@@ -5,35 +5,181 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:chatBotUI"
         mc:Ignorable="d"
-        Title="ChatBot" Height="450" Width="800">
+        Title="Buck The Bot"
+        Height="600"
+        Width="1000"
+        ResizeMode="NoResize">
 
-    <Grid Margin="0,0,0,-16" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="799*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+
+       
         <Grid.Background>
             <ImageBrush ImageSource="/western background.jpg"/>
         </Grid.Background>
-        <Image x:Name="Buck_logo" Margin="10,10,672,341" Source="/Buck.png" Stretch="Fill"/>
-        <Button x:Name="Send" Background="#FFA9ED5B" Content="Send" HorizontalAlignment="Left" Height="29" Margin="679,217,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
-        <Button x:Name="Exit" Background="#FFF17C2A" Content="Fin" HorizontalAlignment="Left" Height="29" Margin="679,370,0,0" VerticalAlignment="Top" Width="86" Click="ExitButton_Click" FontSize="20" FontFamily="Bodoni MT Condensed"/>
-        <Label Content="Buck The Cyber Security Bot" HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="382" Height="36" RenderTransformOrigin="0.509,0.532" FontSize="22" FontFamily="Copperplate Gothic Bold" Foreground="#FFC10D0D"/>
 
-        <Border Margin="10,257,176,35" Background="#FFEFCF75" Opacity="0.85" CornerRadius="10">
+        
+        <Border Margin="10,10,360,10"
+                Background="#AAD09275"
+                CornerRadius="10">
 
-            <ScrollViewer x:Name="chatScroller"
-                  VerticalScrollBarVisibility="Auto" Margin="0,0,10,0">
+            <Grid>
 
-                <StackPanel x:Name="stackPanel1"
-                    Margin="10">
-                </StackPanel>
+                <Image x:Name="Buck_logo"
+                       Source="/Buck.png"
+                       Width="120"
+                       Height="120"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="10"/>
 
-            </ScrollViewer>
+                <Label Content="Buck The Cyber Security Bot"
+                       FontFamily="Copperplate Gothic Bold"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Foreground="DarkRed"                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0,20,0,0"/>
+
+               
+                <Border Margin="10,140,10,90"
+                        Background="#FFEFCF75"
+                        CornerRadius="8">
+
+                    <ScrollViewer x:Name="chatScroller"
+                                  VerticalScrollBarVisibility="Auto">
+
+                        <StackPanel x:Name="stackPanel1"
+                                    Margin="10"/>
+
+                    </ScrollViewer>
+
+                </Border>
+
+                
+                <Label Content="Ask Away Partner"
+                       Background="#FF71E4A2"
+                       Margin="10,0,0,45"
+                       VerticalAlignment="Bottom"
+                       Width="150"
+                       Height="28"
+                       HorizontalContentAlignment="Center"/>
+
+                <TextBox x:Name="UserInputBox"
+                         Margin="165,0,100,45"
+                         Height="28"
+                         VerticalAlignment="Bottom"
+                         FontSize="14"
+                         TextChanged="TextBox_TextChanged"/>
+
+                <Button x:Name="Send"
+                        Content="Send"
+                        FontSize="20"
+                        FontFamily="Bodoni MT Condensed"
+                        Background="#FFA9ED5B"
+                        Width="80"
+                        Height="28"
+                        Margin="0,0,10,45"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="Button_Click"/>
+
+                <Button x:Name="Exit"
+                        Content="Exit"
+                        FontSize="20"
+                        FontFamily="Bodoni MT Condensed"
+                        Background="#FFECED5B"
+                        Width="80"
+                        Height="28"
+                        Margin="0,0,10,10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Click="ExitButton_Click"/>
+
+            </Grid>
 
         </Border>
-        <TextBox x:Name="UserInputBox" HorizontalAlignment="Left" Margin="161,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="438" FontSize="14" Height="27" TextChanged="TextBox_TextChanged"/>
-        <Label Background="#FF71E4A2" Content="Ask Away Partner" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top" Width="151" Height="27" FontFamily="Castellar"/>
+
+       
+
+        <Border Margin="650,10,10,10"
+                Background="#AAD09275"
+                CornerRadius="10">
+
+            <StackPanel Margin="15">
+
+                <Label Content="Task Manager"
+                       FontFamily="Bodoni MT Condensed"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Task Title"
+                           FontFamily="Bodoni MT Condensed"
+                           FontSize="20"
+                           Margin="0,15,0,5"/>
+
+                <TextBox x:Name="txtTitle"                     
+                         Height="28"/>
+
+                <TextBlock Text="Description"
+                           FontFamily="Bodoni MT Condensed"
+                           FontSize="20"
+                           Margin="0,15,0,5"/>
+
+                <TextBox x:Name="txtDescription"
+                         Height="70"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Reminder"
+                           FontFamily="Bodoni MT Condensed"
+                           FontSize="20"
+                           Margin="0,15,0,5"/>
+
+                <DatePicker x:Name="dpReminder"/>
+
+                <Button x:Name="AddTask"
+                        Background="#FFF37E2C"
+                        FontFamily="Bodoni MT Condensed"
+                        FontSize="20"
+                        Content="Add Task"
+                        Margin="0,20,0,0"
+                        Height="30"
+                        Click="AddTask_Click"/>
+
+                <TextBlock Text="Tasks"
+                           FontFamily="Bodoni MT Condensed"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Margin="0,20,0,5"/>
+
+                <ListBox x:Name="TaskList"
+                         Height="180"
+                         FontFamily="Bodoni MT Condensed"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,15,0,0">
+
+                    <Button Content="Complete"
+                            FontFamily="Bodoni MT Condensed"
+                            Width="100"
+                            Margin="5"
+                            Click="CompleteTask_Click"/>
+
+                    <Button Content="Delete"
+                            FontFamily="Bodoni MT Condensed"
+                            Width="100"
+                            Margin="5"
+                            Click="DeleteTask_Click"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
 
     </Grid>
+
 </Window>
