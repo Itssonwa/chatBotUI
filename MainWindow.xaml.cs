@@ -39,18 +39,18 @@ namespace chatBotUI
         private void DisplayQuestion()
         {
             stackPanel1.Children.Clear();
+            Question q = quiz.Questions[quiz.CurrentQuestion];
+            Label lbl = new Label();
+            lbl.Content =
+                $"Question {quiz.CurrentQuestion + 1}\n\n" +
+                $"{q.QuestionText}\n\n" +
+                $"{q.OptionA}\n" +
+                $"{q.OptionB}\n";
 
-            Label questionLabel = new Label();
-            questionLabel.Content =
-                "Question " +
-                (quiz.CurrentQuestion + 1) +
-                ": " +
-                quiz.Questions[quiz.CurrentQuestion].QuestionText;
-
-            questionLabel.FontSize = 16;
-            questionLabel.Foreground = Brushes.DarkBlue;
-
-            stackPanel1.Children.Add(questionLabel);
+            if (!string.IsNullOrWhiteSpace(q.OptionC))
+            lbl.Content += "\n" + q.OptionC;
+            lbl.FontSize = 16;
+            stackPanel1.Children.Add(lbl);
         }
 
         private void CheckAnswer(string answer)
