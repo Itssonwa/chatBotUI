@@ -124,7 +124,7 @@
                        FontFamily="Bodoni MT Condensed"
                        FontSize="30"
                        FontWeight="Bold"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center" Height="40"/>
 
                 <TextBlock Text="Task Title"
                            FontFamily="Bodoni MT Condensed"
@@ -140,7 +140,7 @@
                            Margin="0,15,0,5"/>
 
                 <TextBox x:Name="txtDescription"
-                         Height="70"
+                         Height="40"
                          AcceptsReturn="True"
                          TextWrapping="Wrap"/>
 
@@ -167,7 +167,7 @@
                            Margin="0,20,0,5"/>
 
                 <ListBox x:Name="TaskList"
-                         Height="180"
+                         Height="119"
                          FontFamily="Bodoni MT Condensed"/>
 
                 <StackPanel Orientation="Horizontal"
@@ -175,12 +175,16 @@
                             Margin="0,15,0,0">
 
                     <Button Content="Complete"
+                            Background="#FF77A0F1"
+                            FontSize="20"
                             FontFamily="Bodoni MT Condensed"
                             Width="100"
                             Margin="5"
-                            Click="CompleteTask_Click"/>
+                            Click="CompleteTask_Click" Height="30"/>
 
                     <Button Content="Delete"
+                            Background="#FF4872C5"
+                            FontSize="20"
                             FontFamily="Bodoni MT Condensed"
                             Width="100"
                             Margin="5"
