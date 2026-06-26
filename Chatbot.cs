@@ -1,4 +1,5 @@
-﻿using System;
+﻿using chatBotUI;
+using System;
 
 public class Chatbot
 {
@@ -11,14 +12,50 @@ public class Chatbot
      audio = new AudioPlayer();
      audio.PlayGreeting();
     }
+    private int currentLogIndex = 0;
+
+    private string GetActivityLog()
+    {
+        if (ActivityLog.Log.Count == 0)
+            return "Buck: I ain't done anything yet, partner.";
+
+        string output = "Buck: Here's what I've been up to:\n\n";
+
+        int end = Math.Min(currentLogIndex + 5, ActivityLog.Log.Count);
+
+        for (int i = currentLogIndex; i < end; i++)
+        {
+            output += (i + 1) + ". " + ActivityLog.Log[i] + "\n";
+        }
+
+        if (end < ActivityLog.Log.Count)
+        {
+            output += "\nType 'show more' to see more activities.";
+        }
+
+        currentLogIndex = end;
+
+        return output;
+    }
 
     public string Respond(string input)
     {
+        if (input.Contains("show activity log") ||
+    input.Contains("what have you done for me"))
+        {
+            currentLogIndex = 0;
+            return GetActivityLog();
+        }
         input = input.ToLower();
 
         string sentiment = DetectSentiment(input);
 
         string empathyMessage = ShowEmpathy(sentiment);
+
+        if (input == "show more")
+        {
+            return GetActivityLog();
+        }
 
         if (input.Contains("phishing"))
         {

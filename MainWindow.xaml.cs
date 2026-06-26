@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -32,7 +33,7 @@ namespace chatBotUI
             stackPanel1.Children.Clear();
 
             MessageBox.Show("The Cybersecurity Quiz is starting!");
-
+            ActivityLog.Add("Started the cybersecurity quiz.");
             DisplayQuestion();
         }
 
@@ -92,6 +93,9 @@ namespace chatBotUI
                 message = "Not bad, partner. Keep learning!";
             else
                 message = "Looks like you need more practice on the cyber trail.";
+
+            ActivityLog.Add("Finished the quiz with a score of "
+    +           quiz.Score + "/" + quiz.Questions.Count);
 
             MessageBox.Show(
                 "Final Score: " +
@@ -178,7 +182,7 @@ namespace chatBotUI
             db.Tasks.Add(task);
 
             db.SaveChanges();
-
+            ActivityLog.Add("Added task: " + task.Title);
             LoadTasks();
 
             txtTitle.Clear();
@@ -201,7 +205,7 @@ namespace chatBotUI
             db.Tasks.Update(selectedTask);
 
             db.SaveChanges();
-
+            ActivityLog.Add("Completed task: " + selectedTask.Title);
             LoadTasks();
         }
 
@@ -218,7 +222,7 @@ namespace chatBotUI
             db.Tasks.Remove(selectedTask);
 
             db.SaveChanges();
-
+            ActivityLog.Add("Deleted task: " + selectedTask.Title);
             LoadTasks();
         }
      
