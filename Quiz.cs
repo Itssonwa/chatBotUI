@@ -18,7 +18,7 @@ namespace chatBotUI
         {
             Questions = new List<Question>()
             {
- new Question("Which of these is most likely a phishing email?",
+new Question("Which of these is most likely a phishing email?",
              "A", "A. Bank email asking you to verify your account with a link", "B. Company newsletter from a known address", "C. Receipt for something you bought"),
 
 new Question("What is the main goal of a phishing attack?",
@@ -47,12 +47,6 @@ new Question("What does 2FA add to your account security?",
 
 new Question("Which is an example of 2FA?",
              "A", "A. Password + code sent to your phone", "B. Password only", "C. Username only"),
-
-new Question("True or False: Ransomware locks your files and demands payment.",
-             "True"),
-
-new Question("True or False: Clicking random email attachments cannot install malware.",
-             "False"),
 
 new Question("True or False: Ransomware locks your files and demands payment.",
              "True"),
